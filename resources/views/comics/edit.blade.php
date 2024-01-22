@@ -6,6 +6,17 @@
 
         <div class="row justify-content-center mt-5">
             <div class="col-6">
+
+                @if ($errors->any())
+                    <div class="alert alert_danger">
+                        @foreach ($errors->all() as $error)
+                            <ul>
+                                <li>{{$error}}</li>
+                            </ul>
+                        @endforeach
+                    </div>
+                @endif
+
                 <form action="{{ route('comics.update', ['comic' => $comic->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
