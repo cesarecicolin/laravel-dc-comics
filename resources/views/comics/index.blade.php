@@ -25,7 +25,13 @@
                             
                             <a class="btn btn-info" href="{{route('comics.edit',['comic' => $comic->id])}}">modifica</a>
 
-                           
+                           <form class="d-inline-block" action="{{ route('comics.destroy', ['comic' =>$comic->id])}}"
+                            method="POST">
+                            
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">cancella</button>
+                        </form>
                               
                         </td>
                         
